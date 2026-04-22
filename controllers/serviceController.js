@@ -2,6 +2,15 @@ const { Service } = require('../models');
 
 const getServices = async (req, res) => {
     try {
+        const user = req.user;
+        if (!user) {
+            return res.status(401).json({
+                status: 108,
+                message: "Unauthorized",
+                data: null
+            });
+        }
+
         const services = await Service.findAll({
             where: { status: 'active' },
             attributes: ['service_code', 'service_name', 'service_icon', 'service_tariff'],

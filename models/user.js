@@ -5,6 +5,5 @@ module.exports = (sequelize, DataTypes) => {
     last_name: { type: DataTypes.STRING },
     password: { type: DataTypes.STRING },
     profile_image: { type: DataTypes.STRING },
-    balance: { type: DataTypes.INTEGER, defaultValue: 0 }
   });
 };
